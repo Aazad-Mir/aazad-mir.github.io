@@ -4,24 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aazad Mir | ERPNext Technical Lead</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0f172a;color:#e2e8f0}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:#020617}
-header h1{color:#38bdf8}
-nav a{color:#e2e8f0;margin-left:20px;text-decoration:none}
-.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px}
-.hero h2{font-size:40px;margin-bottom:10px}
-.hero p{max-width:600px}
-.btn{margin-top:20px;padding:12px 25px;background:#38bdf8;color:#000;border:none;border-radius:25px;cursor:pointer;font-weight:bold}
-section{padding:60px 50px}
+body{background:#0f172a;color:#e2e8f0;scroll-behavior:smooth}
+header{position:fixed;width:100%;top:0;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(2,6,23,0.8);backdrop-filter:blur(10px);z-index:1000}
+header h1{color:#38bdf8;font-size:22px}
+nav a{color:#e2e8f0;margin-left:25px;text-decoration:none;font-size:14px}
+nav a:hover{color:#38bdf8}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
+.hero h2{font-size:48px;font-weight:700}
+.hero span{color:#38bdf8}
+.hero p{margin-top:15px;max-width:600px;opacity:0.8}
+.btn-group{margin-top:25px}
+.btn{padding:12px 25px;border:none;border-radius:30px;margin:5px;cursor:pointer;font-weight:600}
+.primary{background:#38bdf8;color:#000}
+.secondary{background:transparent;border:1px solid #38bdf8;color:#38bdf8}
+section{padding:100px 60px}
+.section-title{font-size:28px;margin-bottom:30px;color:#38bdf8}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:#020617;padding:20px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.5)}
-.card h3{margin-bottom:10px}
+.card{background:#020617;padding:25px;border-radius:20px;transition:0.3s;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.card:hover{transform:translateY(-10px)}
+.skills .card{display:flex;flex-direction:column}
+.progress{background:#1e293b;border-radius:20px;overflow:hidden;height:8px;margin-top:10px}
+.progress div{height:100%;background:#38bdf8}
 form{display:flex;flex-direction:column;max-width:500px;margin:auto}
-form input, form textarea{margin-bottom:15px;padding:10px;border:none;border-radius:8px}
-footer{text-align:center;padding:20px;background:#020617;margin-top:40px}
+form input,form textarea{margin-bottom:15px;padding:12px;border:none;border-radius:10px;background:#1e293b;color:#fff}
+footer{text-align:center;padding:30px;background:#020617}
 </style>
 </head>
 <body>
@@ -37,47 +46,52 @@ footer{text-align:center;padding:20px;background:#020617;margin-top:40px}
 </header>
 
 <section class="hero">
-<h2>ERPNext Developer & Technical Lead</h2>
-<p>Helping businesses automate HR, Payroll, and operations with ERPNext and custom solutions.</p>
-<button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Hire Me</button>
+<h2>Hi, I'm <span>Aazad Mir</span></h2>
+<p>ERPNext Developer & Technical Lead specializing in HR systems, payroll automation, and business process digital transformation.</p>
+<div class="btn-group">
+<button class="btn primary" onclick="document.getElementById('contact').scrollIntoView()">Hire Me</button>
+<button class="btn secondary" onclick="document.getElementById('projects').scrollIntoView()">View Work</button>
+</div>
 </section>
 
 <section id="about">
-<h2>About Me</h2>
-<p>I am an ERPNext Developer with 7+ years of experience specializing in HRMS, payroll systems, and custom ERP solutions. I have implemented ERPNext in multiple HR companies and led digital transformation projects.</p>
+<h2 class="section-title">About Me</h2>
+<p>I have 7+ years of experience implementing ERPNext solutions, especially for HR and manpower companies. I specialize in building scalable ERP systems, automating payroll, and developing custom modules using the Frappe framework.</p>
 </section>
 
-<section id="skills">
-<h2>Skills</h2>
+<section id="skills" class="skills">
+<h2 class="section-title">Skills</h2>
 <div class="cards">
-<div class="card"><h3>ERPNext</h3><p>Full implementation & customization</p></div>
-<div class="card"><h3>Frappe Framework</h3><p>Custom apps & automation</p></div>
-<div class="card"><h3>HR & Payroll</h3><p>Advanced payroll configurations</p></div>
-<div class="card"><h3>Integration</h3><p>API & system integrations</p></div>
+<div class="card">ERPNext<div class="progress"><div style="width:95%"></div></div></div>
+<div class="card">Frappe Framework<div class="progress"><div style="width:90%"></div></div></div>
+<div class="card">Python<div class="progress"><div style="width:85%"></div></div></div>
+<div class="card">JavaScript<div class="progress"><div style="width:80%"></div></div></div>
+<div class="card">HR & Payroll<div class="progress"><div style="width:95%"></div></div></div>
+<div class="card">API Integration<div class="progress"><div style="width:85%"></div></div></div>
 </div>
 </section>
 
 <section id="projects">
-<h2>Projects</h2>
+<h2 class="section-title">Projects</h2>
 <div class="cards">
-<div class="card"><h3>HR ERP System</h3><p>Complete ERPNext implementation for HR companies</p></div>
-<div class="card"><h3>Payroll Automation</h3><p>Automated salary, deductions & reporting</p></div>
-<div class="card"><h3>Custom Modules</h3><p>Built employee service & request systems</p></div>
+<div class="card"><h3>AFMCO ERP</h3><p>Full ERPNext implementation for HR operations, payroll automation, and employee lifecycle management.</p></div>
+<div class="card"><h3>ALBWAN ERP</h3><p>Customized ERPNext system with advanced reporting, accounting integration, and HR modules.</p></div>
+<div class="card"><h3>AJIAL MOWAFAQ ERP</h3><p>End-to-end ERP deployment including payroll, employee services, and automation workflows.</p></div>
 </div>
 </section>
 
 <section id="contact">
-<h2>Contact Me</h2>
+<h2 class="section-title">Contact Me</h2>
 <form action="https://formspree.io/f/yourformid" method="POST">
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-<button class="btn" type="submit">Send Message</button>
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+<button class="btn primary" type="submit">Send Message</button>
 </form>
 </section>
 
 <footer>
-<p>© 2026 Aazad Mir | ERPNext Developer</p>
+<p>© 2026 Aazad Mir | ERPNext Technical Lead</p>
 </footer>
 
 </body>
