@@ -1,6 +1,6 @@
 # Aazad Mir Portfolio Website
 
-This repository contains the final AI-tech bilingual portfolio website for Aazad Mir.
+This repository contains the AI-tech bilingual portfolio website of Aazad Mir.
 
 ## Main Features
 
@@ -27,8 +27,5 @@ This repository contains the final AI-tech bilingual portfolio website for Aazad
 - `assets/Aazad_Mir_Contact.vcf` — contact card
 - `images/aazad-profile.jpg` — profile photo
 - `images/linkedin-banner.jpg` — banner image
-- `WHERE_TO_CHANGE_CONTENT.md` — editing guide
 
 ## GitHub Pages
-
-This site is ready to publish from the `main` branch and `/root` folder.
