@@ -1,98 +1,480 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aazad Mir | ERPNext Technical Lead</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0f172a;color:#e2e8f0;scroll-behavior:smooth}
-header{position:fixed;width:100%;top:0;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(2,6,23,0.8);backdrop-filter:blur(10px);z-index:1000}
-header h1{color:#38bdf8;font-size:22px}
-nav a{color:#e2e8f0;margin-left:25px;text-decoration:none;font-size:14px}
-nav a:hover{color:#38bdf8}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
-.hero h2{font-size:48px;font-weight:700}
-.hero span{color:#38bdf8}
-.hero p{margin-top:15px;max-width:600px;opacity:0.8}
-.btn-group{margin-top:25px}
-.btn{padding:12px 25px;border:none;border-radius:30px;margin:5px;cursor:pointer;font-weight:600}
-.primary{background:#38bdf8;color:#000}
-.secondary{background:transparent;border:1px solid #38bdf8;color:#38bdf8}
-section{padding:100px 60px}
-.section-title{font-size:28px;margin-bottom:30px;color:#38bdf8}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:#020617;padding:25px;border-radius:20px;transition:0.3s;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-.card:hover{transform:translateY(-10px)}
-.skills .card{display:flex;flex-direction:column}
-.progress{background:#1e293b;border-radius:20px;overflow:hidden;height:8px;margin-top:10px}
-.progress div{height:100%;background:#38bdf8}
-form{display:flex;flex-direction:column;max-width:500px;margin:auto}
-form input,form textarea{margin-bottom:15px;padding:12px;border:none;border-radius:10px;background:#1e293b;color:#fff}
-footer{text-align:center;padding:30px;background:#020617}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aazad Mir | Sr. IT Support Specialist | System & ERP Administrator</title>
+  <meta name="description" content="Bilingual AI-tech portfolio website for Aazad Mir, Sr. IT Support Specialist, System & ERP Administrator, Microsoft 365, ERPNext, Network, Cloud and IT Infrastructure Support professional." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="assets/aazad-logo.svg" type="image/svg+xml">
+  <meta property="og:title" content="Aazad Mir | Sr. IT Support Specialist | System & ERP Administrator">
+  <meta property="og:description" content="AI-tech bilingual portfolio for Microsoft 365, ERPNext, Cloud, Network and System Administration support.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/linkedin-banner.jpg">
+  <meta name="theme-color" content="#020817">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aazad Mir",
+    "jobTitle": "Sr. IT Support Specialist | System & ERP Administrator",
+    "email": "mailto:aazadmir111@gmail.com",
+    "telephone": "+966541802463",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Riyadh",
+      "addressCountry": "Saudi Arabia"
+    },
+    "url": "https://www.linkedin.com/in/aazadmir1996/",
+    "sameAs": [
+      "https://www.linkedin.com/in/aazadmir1996/"
+    ],
+    "knowsAbout": [
+      "Microsoft 365",
+      "ERPNext",
+      "Frappe",
+      "System Administration",
+      "Cloud VPS",
+      "Network Support",
+      "Linux",
+      "Windows Server"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-<header>
-<h1>Aazad Mir</h1>
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+<body class="lang-en">
+  <div class="page-loader" id="pageLoader">
+    <img src="assets/aazad-logo.svg" alt="Aazad Mir logo">
+    <span>Initializing Portfolio</span>
+  </div>
 
-<section class="hero">
-<h2>Hi, I'm <span>Aazad Mir</span></h2>
-<p>ERPNext Developer & Technical Lead specializing in HR systems, payroll automation, and business process digital transformation.</p>
-<div class="btn-group">
-<button class="btn primary" onclick="document.getElementById('contact').scrollIntoView()">Hire Me</button>
-<button class="btn secondary" onclick="document.getElementById('projects').scrollIntoView()">View Work</button>
-</div>
-</section>
+  <canvas id="aiCanvas" class="ai-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="quick-dock" aria-label="Quick recruiter actions">
+    <a href="assets/Aazad_Mir_CV.pdf" target="_blank" rel="noopener" title="Open CV">CV</a>
+    <a href="https://www.linkedin.com/in/aazadmir1996/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+    <a href="mailto:aazadmir111@gmail.com" title="Email">✉</a>
+    <a href="assets/Aazad_Mir_Contact.vcf" title="Save Contact">+</a>
+  </div>
 
-<section id="about">
-<h2 class="section-title">About Me</h2>
-<p>I have 7+ years of experience implementing ERPNext solutions, especially for HR and manpower companies. I specialize in building scalable ERP systems, automating payroll, and developing custom modules using the Frappe framework.</p>
-</section>
 
-<section id="skills" class="skills">
-<h2 class="section-title">Skills</h2>
-<div class="cards">
-<div class="card">ERPNext<div class="progress"><div style="width:95%"></div></div></div>
-<div class="card">Frappe Framework<div class="progress"><div style="width:90%"></div></div></div>
-<div class="card">Python<div class="progress"><div style="width:85%"></div></div></div>
-<div class="card">JavaScript<div class="progress"><div style="width:80%"></div></div></div>
-<div class="card">HR & Payroll<div class="progress"><div style="width:95%"></div></div></div>
-<div class="card">API Integration<div class="progress"><div style="width:85%"></div></div></div>
-</div>
-</section>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Aazad Mir homepage">
+        <img src="assets/aazad-logo.svg" alt="Aazad Mir logo">
+        <div>
+          <strong>Aazad Mir</strong>
+          <span>
+            <span class="en">System & ERP Administrator</span>
+            <span class="ar">مسؤول الأنظمة و ERP</span>
+          </span>
+        </div>
+      </a>
 
-<section id="projects">
-<h2 class="section-title">Projects</h2>
-<div class="cards">
-<div class="card"><h3>AFMCO ERP</h3><p>Full ERPNext implementation for HR operations, payroll automation, and employee lifecycle management.</p></div>
-<div class="card"><h3>ALBWAN ERP</h3><p>Customized ERPNext system with advanced reporting, accounting integration, and HR modules.</p></div>
-<div class="card"><h3>AJIAL MOWAFAQ ERP</h3><p>End-to-end ERP deployment including payroll, employee services, and automation workflows.</p></div>
-</div>
-</section>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
 
-<section id="contact">
-<h2 class="section-title">Contact Me</h2>
-<form action="https://formspree.io/f/yourformid" method="POST">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-<button class="btn primary" type="submit">Send Message</button>
-</form>
-</section>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home"><span class="en">Home</span><span class="ar">الرئيسية</span></a>
+        <a href="#about"><span class="en">About</span><span class="ar">نبذة</span></a>
+        <a href="#skills"><span class="en">Skills</span><span class="ar">المهارات</span></a>
+        <a href="#projects"><span class="en">Projects</span><span class="ar">المشاريع</span></a>
+        <a href="#experience"><span class="en">Experience</span><span class="ar">الخبرة</span></a>
+        <a href="#contact" class="nav-cta"><span class="en">Contact</span><span class="ar">تواصل</span></a>
 
-<footer>
-<p>© 2026 Aazad Mir | ERPNext Technical Lead</p>
-</footer>
+        <button class="command-open" id="commandOpen" type="button">
+          <span class="en">⌘ Search</span>
+          <span class="ar">⌘ بحث</span>
+        </button>
 
+        <div class="language-switch">
+          <button class="lang-btn active" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="ar" type="button">عربي</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span class="en">Available for senior IT / ERP opportunities</span>
+            <span class="ar">متاح لفرص عمل في تقنية المعلومات و ERP</span>
+          </div>
+
+          <h1>
+            <span class="en">Sr. IT Support Specialist | System & ERP Administrator</span>
+            <span class="ar">أخصائي دعم تقني أول | مسؤول أنظمة و ERP</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            <span class="en">Microsoft 365 · ERPNext · Network & Cloud Support · Multi-site IT Infrastructure</span>
+            <span class="ar">Microsoft 365 · ERPNext · الشبكات والدعم السحابي · البنية التحتية متعددة المواقع</span>
+          </p>
+
+          <p class="hero-description">
+            <span class="en">
+              Saudi-based IT professional supporting Microsoft 365, ERPNext, Windows/Linux servers,
+              networks, cloud VPS, backups, end users, and business-critical IT operations with a focus on reliability, automation, and process improvement.
+            </span>
+            <span class="ar">
+              محترف تقنية معلومات مقيم في السعودية يدعم Microsoft 365 و ERPNext وخوادم Windows/Linux،
+              الشبكات، الخوادم السحابية، النسخ الاحتياطي، المستخدمين، واستمرارية خدمات تقنية المعلومات مع التركيز على الاعتمادية والأتمتة وتحسين الإجراءات.
+            </span>
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span class="en">View Projects</span>
+              <span class="ar">عرض المشاريع</span>
+            </a>
+            <a href="assets/Aazad_Mir_CV.pdf" target="_blank" rel="noopener" class="btn btn-glass">
+              <span class="en">Download CV</span>
+              <span class="ar">تحميل السيرة الذاتية</span>
+            </a>
+            <a href="https://www.linkedin.com/in/aazadmir1996/" target="_blank" rel="noopener" class="btn btn-linkedin">
+              <span class="en">LinkedIn Profile</span>
+              <span class="ar">ملف LinkedIn</span>
+            </a>
+          </div>
+
+          <div class="terminal-card">
+            <div class="terminal-top">
+              <span></span><span></span><span></span>
+              <small>portfolio.ai</small>
+            </div>
+            <code id="typeLine">booting profile...</code>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-shell tilt-card">
+            <div class="hud-ring ring-one"></div>
+            <div class="hud-ring ring-two"></div>
+            <img src="images/aazad-profile.jpg" alt="Aazad Mir professional photo" onerror="this.src='assets/aazad-logo.svg'">
+            <div class="floating-metric metric-one">
+              <strong>8+</strong>
+              <span class="en">Years Saudi Experience</span>
+              <span class="ar">سنوات خبرة في السعودية</span>
+            </div>
+            <div class="floating-metric metric-two">
+              <strong>Multi</strong>
+              <span class="en">Business Sector Experience</span>
+              <span class="ar">خبرة في قطاعات متعددة</span>
+            </div>
+            <div class="floating-metric metric-three">
+              <strong>30–40%</strong>
+              <span class="en">Paperwork Reduction</span>
+              <span class="ar">تقليل الأعمال الورقية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container tech-strip reveal">
+        <div class="strip-track">
+          <span>Microsoft 365</span><span>ERPNext</span><span>Frappe</span><span>Entra ID</span><span>Exchange Online</span><span>Windows Server</span><span>Linux Ubuntu</span><span>DigitalOcean</span><span>Networking</span><span>Cloud VPS</span>
+          <span>Microsoft 365</span><span>ERPNext</span><span>Frappe</span><span>Entra ID</span><span>Exchange Online</span><span>Windows Server</span><span>Linux Ubuntu</span><span>DigitalOcean</span><span>Networking</span><span>Cloud VPS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+      <div class="container about-grid">
+        <div class="section-heading reveal">
+          <span class="section-kicker">
+            <span class="en">Professional Profile</span>
+            <span class="ar">الملف المهني</span>
+          </span>
+          <h2>
+            <span class="en">Business-focused IT support with ERP, cloud, and infrastructure depth.</span>
+            <span class="ar">دعم تقني موجه للأعمال مع خبرة في ERP والسحابة والبنية التحتية.</span>
+          </h2>
+        </div>
+
+        <div class="about-card reveal">
+          <p>
+            <span class="en">
+              Senior IT Support and System & ERP Support professional with strong hands-on background in L1/L2 support,
+              escalation handling, user lifecycle management, ERPNext administration, access/email support,
+              connectivity troubleshooting, SOP documentation, vendor coordination, preventive maintenance,
+              and business-critical IT service continuity.
+            </span>
+            <span class="ar">
+              محترف في الدعم التقني وإدارة الأنظمة و ERP بخبرة عملية قوية في دعم L1/L2،
+              معالجة التصعيد، إدارة دورة حياة المستخدمين، إدارة ERPNext، دعم البريد والوصول،
+              حل مشاكل الاتصال، توثيق الإجراءات، التنسيق مع الموردين، الصيانة الوقائية،
+              واستمرارية خدمات تقنية المعلومات الحرجة للأعمال.
+            </span>
+          </p>
+
+          <div class="about-focus-list">
+            <span><span class="en">Multi-business sector support</span><span class="ar">دعم قطاعات عمل متعددة</span></span>
+            <span><span class="en">ERPNext customization & training</span><span class="ar">تخصيص ERPNext وتدريب المستخدمين</span></span>
+            <span><span class="en">Microsoft 365 administration</span><span class="ar">إدارة Microsoft 365</span></span>
+            <span><span class="en">Process improvement & automation</span><span class="ar">تحسين الإجراءات والأتمتة</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- AI COMMAND CENTER -->
+    <section id="command-center" class="section command-section">
+      <div class="container command-grid">
+        <div class="section-heading reveal">
+          <span class="section-kicker"><span class="en">AI Recruiter View</span><span class="ar">عرض ذكي لأصحاب العمل</span></span>
+          <h2><span class="en">Quick answers hiring managers usually want first.</span><span class="ar">إجابات سريعة على أهم ما يبحث عنه أصحاب العمل.</span></h2>
+          <p><span class="en">Use the buttons below to instantly view a focused summary of my strongest fit, ERPNext value, infrastructure support, and process improvement impact.</span><span class="ar">استخدم الأزرار التالية لعرض ملخص سريع عن أفضل نقاط القوة، قيمة ERPNext، دعم البنية التحتية، وتأثير تحسين الإجراءات.</span></p>
+        </div>
+
+        <div class="ai-console reveal">
+          <div class="ai-console-top">
+            <span></span><span></span><span></span>
+            <strong>recruiter.ai</strong>
+          </div>
+
+          <div class="prompt-chips">
+            <button class="prompt-chip active" data-answer="fit"><span class="en">Best fit roles</span><span class="ar">أنسب الوظائف</span></button>
+            <button class="prompt-chip" data-answer="erp"><span class="en">ERPNext value</span><span class="ar">قيمة ERPNext</span></button>
+            <button class="prompt-chip" data-answer="infra"><span class="en">Infrastructure strength</span><span class="ar">قوة البنية التحتية</span></button>
+            <button class="prompt-chip" data-answer="impact"><span class="en">Business impact</span><span class="ar">الأثر على العمل</span></button>
+          </div>
+
+          <div class="ai-answer" id="aiAnswer">
+            <h3></h3>
+            <p></p>
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker"><span class="en">Technical Stack</span><span class="ar">المهارات التقنية</span></span>
+          <h2><span class="en">Skills mapped across support, systems, ERP, cloud, and networks.</span><span class="ar">مهارات تغطي الدعم والأنظمة وERP والسحابة والشبكات.</span></h2>
+        </div>
+
+        <div class="skill-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">01</div>
+            <h3><span class="en">IT Support & Service Delivery</span><span class="ar">الدعم التقني وتقديم الخدمة</span></h3>
+            <p><span class="en">L1/L2 support, incidents, service requests, escalation, remote/on-site support, user training, SOPs.</span><span class="ar">دعم L1/L2، الحوادث، طلبات الخدمة، التصعيد، الدعم عن بعد والموقع، تدريب المستخدمين، إجراءات العمل.</span></p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">02</div>
+            <h3><span class="en">Microsoft 365 & Identity</span><span class="ar">Microsoft 365 والهوية</span></h3>
+            <p><span class="en">Exchange Online, Outlook, Entra ID, mailbox access, password resets, security settings, user lifecycle.</span><span class="ar">Exchange Online، Outlook، Entra ID، صلاحيات البريد، إعادة تعيين كلمات المرور، إعدادات الأمان، إدارة المستخدمين.</span></p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">03</div>
+            <h3><span class="en">ERPNext / Frappe Administration</span><span class="ar">إدارة ERPNext / Frappe</span></h3>
+            <p><span class="en">ERPNext customization, custom apps, users, roles, workflows, reports, print formats, HR, Finance, Inventory, Payroll support, and end-user training.</span><span class="ar">تخصيص ERPNext، بناء تطبيقات مخصصة، المستخدمون، الأدوار، سير العمل، التقارير، النماذج، دعم الموارد البشرية والمالية والمخزون والرواتب، وتدريب المستخدمين.</span></p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">04</div>
+            <h3><span class="en">Systems, Cloud & Networks</span><span class="ar">الأنظمة والسحابة والشبكات</span></h3>
+            <p><span class="en">Windows, Linux Ubuntu, Windows Server, VPS, DigitalOcean, Contabo, LAN/WAN, VPN, routing, switching, Wi‑Fi.</span><span class="ar">Windows، Linux Ubuntu، Windows Server، VPS، DigitalOcean، Contabo، LAN/WAN، VPN، التوجيه، السويتشات، Wi‑Fi.</span></p>
+          </article>
+        </div>
+
+        <div class="skill-cloud reveal">
+          <span>Microsoft 365</span><span>Exchange Online</span><span>Entra ID</span><span>ERPNext</span><span>Frappe</span><span>Windows Server</span><span>Linux</span><span>DigitalOcean</span><span>Contabo</span><span>MariaDB</span><span>Python</span><span>HTML</span><span>CSS</span><span>WordPress</span><span>Flutter</span><span>CCTV/IP Cameras</span><span>LAN/WAN</span><span>VPN</span><span>Backups</span><span>IT Assets</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker"><span class="en">Highlighted Work</span><span class="ar">أبرز الأعمال</span></span>
+          <h2><span class="en">Projects that show infrastructure, ERP, and business systems impact.</span><span class="ar">مشاريع توضح أثر البنية التحتية وERP وأنظمة الأعمال.</span></h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card big reveal">
+            <div class="project-bg"></div>
+            <span class="project-tag">ERPNext / Frappe</span>
+            <h3><span class="en">ERPNext Customization, Custom Apps & User Training</span><span class="ar">تخصيص ERPNext وبناء التطبيقات وتدريب المستخدمين</span></h3>
+            <p><span class="en">Worked on ERPNext in AFMCO and in the current company, supporting users, roles, permissions, workflows, reports, print formats, business process customization, custom app requirements, troubleshooting, and end-user training.</span><span class="ar">عملت على ERPNext في AFMCO وفي الشركة الحالية، بما يشمل دعم المستخدمين والأدوار والصلاحيات وسير العمل والتقارير والنماذج وتخصيص إجراءات العمل ومتطلبات التطبيقات المخصصة وحل المشاكل وتدريب المستخدمين.</span></p>
+            <div class="project-metrics project-focus">
+              <span>Customization</span>
+              <span>Custom Apps</span>
+              <span>End-user Training</span>
+              <span>Process Improvement</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-tag">Microsoft 365</span>
+            <h3><span class="en">Microsoft 365 Administration</span><span class="ar">إدارة Microsoft 365</span></h3>
+            <p><span class="en">Exchange Online, Outlook, Entra ID users, mailbox access, password resets, security settings, access control, and user lifecycle support.</span><span class="ar">إدارة Exchange Online وOutlook ومستخدمي Entra ID وصلاحيات البريد وإعادة تعيين كلمات المرور وإعدادات الأمان والتحكم بالوصول ودعم دورة حياة المستخدم.</span></p>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-tag">Cloud</span>
+            <h3><span class="en">Cloud VPS & Linux Operations</span><span class="ar">تشغيل الخوادم السحابية وLinux</span></h3>
+            <p><span class="en">DigitalOcean and Contabo VPS administration, Linux maintenance, access control, monitoring, backups, and hosted business system support.</span><span class="ar">إدارة خوادم DigitalOcean وContabo، صيانة Linux، التحكم بالوصول، المراقبة، النسخ الاحتياطي، ودعم أنظمة الأعمال المستضافة.</span></p>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-tag">Process Improvement</span>
+            <h3><span class="en">Paperwork Reduction & Digital Workflows</span><span class="ar">تقليل الأعمال الورقية وسير العمل الرقمي</span></h3>
+            <p><span class="en">Improved business support processes by moving manual work into ERPNext workflows, reports, print formats, role-based access, and user training to reduce paperwork and improve follow-up.</span><span class="ar">تحسين إجراءات دعم الأعمال من خلال نقل العمل اليدوي إلى سير عمل ERPNext والتقارير والنماذج والصلاحيات وتدريب المستخدمين لتقليل الأعمال الورقية وتحسين المتابعة.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker"><span class="en">Experience</span><span class="ar">الخبرة العملية</span></span>
+          <h2><span class="en">Saudi IT experience across manufacturing, contracting, retail, and office environments.</span><span class="ar">خبرة تقنية في السعودية عبر التصنيع والمقاولات والتجزئة والبيئات المكتبية.</span></h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Mar 2025 — Present</div>
+            <div class="timeline-content">
+              <h3><span class="en">IT Technical Lead</span><span class="ar">قائد تقني لتقنية المعلومات</span></h3>
+              <strong>Ajial Water - Ajial Mowafaq Industries Co. | Riyadh</strong>
+              <p><span class="en">Lead IT support and infrastructure operations and support ERPNext administration, customization requirements, reports, workflows, user training, and daily business application support.</span><span class="ar">قيادة عمليات الدعم والبنية التحتية ودعم إدارة ERPNext ومتطلبات التخصيص والتقارير وسير العمل وتدريب المستخدمين ودعم تطبيقات الأعمال اليومية.</span></p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Jan 2023 — Feb 2025</div>
+            <div class="timeline-content">
+              <h3><span class="en">ICT Technical Support</span><span class="ar">دعم تقني لتقنية المعلومات والاتصالات</span></h3>
+              <strong>AFMCO Ltd - Abdullah Fahad Al Mutairi Co. | Riyadh</strong>
+              <p><span class="en">Managed cloud-hosted business systems and ERPNext support, including users, roles, permissions, workflows, reports, print formats, customization support, training, servers, backups, and user support.</span><span class="ar">إدارة أنظمة الأعمال السحابية ودعم ERPNext، بما يشمل المستخدمين والأدوار والصلاحيات وسير العمل والتقارير والنماذج ودعم التخصيص والتدريب والخوادم والنسخ الاحتياطي ودعم المستخدمين.</span></p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Mar 2022 — Jan 2023</div>
+            <div class="timeline-content">
+              <h3><span class="en">IT Support</span><span class="ar">دعم تقنية المعلومات</span></h3>
+              <strong>Ballon Supermarket (BSM) | Riyadh</strong>
+              <p><span class="en">Supported retail IT operations including ERP, POS systems, desktops, printers, network devices, and troubleshooting.</span><span class="ar">دعم عمليات تقنية المعلومات في التجزئة بما يشمل ERP وPOS وأجهزة سطح المكتب والطابعات وأجهزة الشبكة وحل المشاكل.</span></p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Jul 2018 — Feb 2022</div>
+            <div class="timeline-content">
+              <h3><span class="en">IT Support</span><span class="ar">دعم تقنية المعلومات</span></h3>
+              <strong>Mosfer Bin Haider Contracting Co. | Dammam</strong>
+              <p><span class="en">Provided support for users, desktops, servers, networks, enterprise applications, backups, and performance issues.</span><span class="ar">تقديم الدعم للمستخدمين وأجهزة الكمبيوتر والخوادم والشبكات وتطبيقات الأعمال والنسخ الاحتياطي ومشاكل الأداء.</span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section credentials-section">
+      <div class="container credentials-grid">
+        <article class="credential-card reveal">
+          <span class="section-kicker"><span class="en">Education</span><span class="ar">التعليم</span></span>
+          <h3>MBA in Information Technology & Marketing</h3>
+          <p>Swami Vivekanand Subharti University, India | 2022 - 2024</p>
+          <h3>Bachelor in Computer Applications</h3>
+          <p>Pacific University, Udaipur, India | 2017</p>
+        </article>
+
+        <article class="credential-card reveal">
+          <span class="section-kicker"><span class="en">Certifications & Languages</span><span class="ar">الشهادات واللغات</span></span>
+          <div class="cert-list">
+            <span>Cloud Computing Fundamentals</span>
+            <span>IT Project Management</span>
+            <span>Data Analysis</span>
+            <span>HTML</span>
+          </div>
+          <div class="language-list">
+            <span>English - Full Professional</span>
+            <span>Arabic - Conversational</span>
+            <span>Hindi - Native</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="section-kicker"><span class="en">Contact</span><span class="ar">تواصل</span></span>
+          <h2><span class="en">Let’s connect for IT support, ERP, system administration, or cloud infrastructure roles.</span><span class="ar">لنتواصل بخصوص فرص الدعم التقني أو ERP أو إدارة الأنظمة أو البنية السحابية.</span></h2>
+          <p><span class="en">Based in Riyadh, Saudi Arabia. Open to senior IT support, system administration, ERPNext, and infrastructure support opportunities.</span><span class="ar">مقيم في الرياض، السعودية. متاح لفرص الدعم التقني المتقدم، إدارة الأنظمة، ERPNext، ودعم البنية التحتية.</span></p>
+
+          <div class="hero-actions">
+            <a href="assets/Aazad_Mir_CV.pdf" target="_blank" rel="noopener" class="btn btn-primary"><span class="en">Open CV</span><span class="ar">فتح السيرة الذاتية</span></a>
+            <a href="mailto:aazadmir111@gmail.com" class="btn btn-glass"><span class="en">Email Me</span><span class="ar">إرسال بريد</span></a>
+            <a href="https://www.linkedin.com/in/aazadmir1996/" target="_blank" rel="noopener" class="btn btn-linkedin"><span class="en">LinkedIn</span><span class="ar">LinkedIn</span></a>
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-line"><span><span class="en">Name</span><span class="ar">الاسم</span></span><strong>Aazad Mir</strong></div>
+          <div class="contact-line"><span><span class="en">Location</span><span class="ar">الموقع</span></span><strong><span class="en">Riyadh, Saudi Arabia</span><span class="ar">الرياض، السعودية</span></strong></div>
+          <div class="contact-line"><span><span class="en">Phone</span><span class="ar">الهاتف</span></span><strong>+966 54 180 2463</strong></div>
+          <div class="contact-line"><span><span class="en">Email</span><span class="ar">البريد</span></span><strong>aazadmir111@gmail.com</strong></div>
+          <div class="contact-line"><span><span class="en">LinkedIn</span><span class="ar">LinkedIn</span></span><strong><a href="https://www.linkedin.com/in/aazadmir1996/" target="_blank" rel="noopener">aazadmir1996</a></strong></div>
+          <a href="https://wa.me/966541802463" target="_blank" rel="noopener" class="btn btn-primary full-btn"><span class="en">Message on WhatsApp</span><span class="ar">مراسلة واتساب</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><span class="en">© <span id="year"></span> Aazad Mir. AI-Tech Portfolio.</span><span class="ar">© <span id="yearAr"></span> آزاد مير. ملف تقني احترافي.</span></p>
+      <a href="#home"><span class="en">Back to top ↑</span><span class="ar">العودة للأعلى ↑</span></a>
+    </div>
+  </footer>
+
+
+  <div class="command-palette" id="commandPalette" aria-hidden="true">
+    <div class="command-backdrop" id="commandBackdrop"></div>
+    <div class="command-box" role="dialog" aria-label="Portfolio command palette">
+      <div class="command-input-row">
+        <span>⌘</span>
+        <input id="commandInput" type="text" placeholder="Search portfolio actions..." autocomplete="off">
+        <button id="commandClose" type="button">Esc</button>
+      </div>
+      <div class="command-results" id="commandResults"></div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
