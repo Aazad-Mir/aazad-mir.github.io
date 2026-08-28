@@ -723,6 +723,33 @@ body.lang-ar .contact-line strong { text-align: left; }
   body.lang-ar .contact-line strong { text-align: right; }
 }
 
+/* V6: keep the technology background painted during drag and overscroll */
+html {
+  min-height: 100%;
+  background: #020817;
+  overscroll-behavior-y: none;
+}
+
+body {
+  min-height: 100vh;
+  background: transparent;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vh -20vw;
+  z-index: -5;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(72,230,255,0.13), transparent 22rem),
+    radial-gradient(circle at 90% 12%, rgba(124,255,203,0.10), transparent 24rem),
+    radial-gradient(circle at 35% 92%, rgba(58,134,255,0.12), transparent 28rem),
+    linear-gradient(180deg, #020817, #030B16 42%, #020710 100%);
+  transform: translateZ(0);
+}
+
 /* V5 immersive technology interface */
 .hero-visual { isolation: isolate; perspective: 1200px; }
 .orbit-system { position:absolute; inset:-9% -12%; z-index:-1; transform:rotateX(64deg) rotateZ(-12deg); transform-style:preserve-3d; pointer-events:none; }
@@ -1339,3 +1366,7 @@ body.lang-ar .command-item {
     width: 100%;
   }
 }
+
+/* Final viewport background guard: must remain after all theme overrides. */
+html { background-color: #020817; }
+body { background: transparent; }
