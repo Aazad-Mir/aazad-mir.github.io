@@ -90,7 +90,7 @@ const typeLine = document.getElementById("typeLine");
 const lines = [
   "load_profile('Aazad Mir')",
   "skills = ['Microsoft 365', 'ERPNext', 'Cloud VPS', 'Network Support']",
-  "experience.saudi = '8+ years'",
+  "experience.saudi = '8 years'",
   "status = 'Ready for senior IT opportunities'"
 ];
 let lineIndex = 0;
@@ -275,21 +275,21 @@ const recruiterAnswers = {
   erp: {
     en: {
       title: "ERPNext value",
-      text: "He can support ERPNext beyond basic administration by helping with customization, workflows, reports, print formats, custom apps, troubleshooting, and end-user training.",
+      text: "He administers ERPNext across business departments, covering users, roles, permissions, workflows, reports, print formats, automation, troubleshooting, and end-user support.",
       points: [
         "Worked on ERPNext in AFMCO and current company",
         "Users, roles, permissions and workflows",
-        "Custom app requirements and business process customization",
+        "Automation and controlled cross-department processes",
         "End-user training and department support"
       ]
     },
     ar: {
       title: "قيمة ERPNext",
-      text: "يمكنه دعم ERPNext بشكل يتجاوز الإدارة الأساسية من خلال التخصيص، سير العمل، التقارير، النماذج، التطبيقات المخصصة، حل المشاكل، وتدريب المستخدمين.",
+      text: "يدير ERPNext عبر أقسام الأعمال، بما يشمل المستخدمين والأدوار والصلاحيات وسير العمل والتقارير والنماذج والأتمتة وحل المشاكل ودعم المستخدمين.",
       points: [
         "عمل على ERPNext في AFMCO والشركة الحالية",
         "إدارة المستخدمين والأدوار والصلاحيات وسير العمل",
-        "متطلبات التطبيقات المخصصة وتخصيص إجراءات العمل",
+        "الأتمتة وضبط إجراءات العمل بين الأقسام",
         "تدريب المستخدمين ودعم الأقسام"
       ]
     }
