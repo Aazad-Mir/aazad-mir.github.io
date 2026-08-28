@@ -49,6 +49,8 @@ navMenu.querySelectorAll("a").forEach((link) => {
   });
 });
 
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 /* Reveal on scroll */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -74,9 +76,9 @@ window.addEventListener("scroll", () => {
 
 /* Cursor glow */
 const cursorGlow = document.getElementById("cursorGlow");
-window.addEventListener("mousemove", (e) => {
+window.addEventListener("pointermove", (e) => {
   cursorGlow.style.transform = `translate(${e.clientX - 160}px, ${e.clientY - 160}px)`;
-});
+}, { passive: true });
 
 /* Current year */
 const y = new Date().getFullYear();
@@ -192,7 +194,57 @@ function animateCanvas() {
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
-animateCanvas();
+if (!reduceMotion) animateCanvas();
+
+/* V5 interactive depth, counters, spotlight and active navigation */
+const interactiveCards = document.querySelectorAll("[data-tilt]");
+if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+  interactiveCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const px = (event.clientX - rect.left) / rect.width;
+      const py = (event.clientY - rect.top) / rect.height;
+      card.style.transform = `rotateX(${(0.5 - py) * 7}deg) rotateY(${(px - 0.5) * 7}deg) translateY(-4px)`;
+    });
+    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+  });
+}
+
+document.querySelectorAll(".skill-card, .project-card, .timeline-item, .credential-card, .contact-card, .about-card, .ai-console").forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--spot-x", `${event.clientX - rect.left}px`);
+    card.style.setProperty("--spot-y", `${event.clientY - rect.top}px`);
+  }, { passive: true });
+});
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = Number(el.dataset.target);
+    const duration = reduceMotion ? 1 : 1100;
+    const started = performance.now();
+    const tick = (now) => {
+      const progressValue = Math.min((now - started) / duration, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - progressValue, 3)));
+      if (progressValue < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    observer.unobserve(el);
+  });
+}, { threshold: .6 });
+document.querySelectorAll(".counter").forEach((counter) => counterObserver.observe(counter));
+
+const navLinks = [...document.querySelectorAll('.nav-menu a[href^="#"]')];
+const navSections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`));
+  });
+}, { rootMargin: "-38% 0px -55%", threshold: 0 });
+navSections.forEach((section) => navObserver.observe(section));
 
 /* V4 AI Recruiter View */
 const recruiterAnswers = {
